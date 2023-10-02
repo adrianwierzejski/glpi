@@ -1,4 +1,5 @@
-apt install mariadb-server
+#! /bin/bash
+apt -y install mariadb-server
 echo "CREATE DATABASE glpi;
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'StrongDBPassword';
 GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
