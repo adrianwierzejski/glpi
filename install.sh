@@ -53,10 +53,11 @@ chown -R www-data:www-data /var/log/glpi
 chown -R www-data:www-data /var/lib/glpi
 chown -R www-data:www-data /etc/glpi
 
-cat /etc/php/8.1/apache2/php.ini | sed -e "s/session.cookie_httponly =/session.cookie_httponly = On/" > /etc/php/8.1/apache2/php.ini.new
-mv /etc/php/8.1/apache2/php.ini /etc/php/8.1/apache2/php.ini.old
-mv /etc/php/8.1/apache2/php.ini.new /etc/php/8.1/apache2/php.ini
+cp /etc/php/8.1/apache2/php.ini /etc/php/8.1/apache2/php.ini.old
+cat /etc/php/8.1/apache2/php.ini.old | sed -e "s/session.cookie_httponly =/session.cookie_httponly = On/" > /etc/php/8.1/apache2/php.ini
+
 
 a2enmod rewrite
+a2dissite 000-default.conf
 a2ensite 001-glpi.conf
 systemctl reload apache2
