@@ -7,7 +7,7 @@ mysql_secure_installation
 apt -y install php php-{curl,zip,bz2,gd,imagick,intl,apcu,memcache,imap,mysql,cas,ldap,tidy,pear,xmlrpc,pspell,mbstring,json,iconv,xml,gd,xsl}
 apt -y install apache2 libapache2-mod-php
 wget https://github.com/glpi-project/glpi/releases/download/10.0.9/glpi-10.0.9.tgz
-tar zxvf glpi-10.0.9.tgz -C /var/www/glpi
+tar zxvf glpi-10.0.9.tgz -C /var/www/
 mv /var/www/glpi/config /etc/glpi
 mv /var/www/glpi/files /var/lib/glpi
 mkdir /var/log/glpi
