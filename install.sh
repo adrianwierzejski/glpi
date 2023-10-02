@@ -1,4 +1,8 @@
 apt install mariadb-server
+echo "CREATE DATABASE glpi;
+CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'StrongDBPassword';
+GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
+FLUSH PRIVILEGES;" | sudo  mysql -u root
 mysql_secure_installation
 apt -y install php php-{curl,zip,bz2,gd,imagick,intl,apcu,memcache,imap,mysql,cas,ldap,tidy,pear,xmlrpc,pspell,mbstring,json,iconv,xml,gd,xsl}
 apt -y install apache2 libapache2-mod-php
